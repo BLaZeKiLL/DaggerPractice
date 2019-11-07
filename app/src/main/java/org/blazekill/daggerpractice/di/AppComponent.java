@@ -15,13 +15,12 @@ import dagger.android.support.AndroidSupportInjectionModule;
 )
 public interface AppComponent extends AndroidInjector<BaseApplication> {
 
+    /**
+     * create method is already added as we are extending Factory interface from
+     * AndroidInjector.Factory which binds the BaseApplication (@BindsInstance) so
+     * we can use BaseApplication as a dependency
+     */
     @Component.Factory
-    interface Factory extends AndroidInjector.Factory<BaseApplication> {
-        /*
-         * create method is already added as we are extending Factory interface from
-         * AndroidInjector.Factory
-         */
-        // AppComponent create(@BindsInstance Application application);
-    }
+    interface Factory extends AndroidInjector.Factory<BaseApplication> { }
 
 }
