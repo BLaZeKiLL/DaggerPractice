@@ -1,8 +1,10 @@
-package org.blazekill.daggerpractice;
+package org.blazekill.daggerpractice.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import org.blazekill.daggerpractice.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,4 +13,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
 }
