@@ -1,7 +1,11 @@
 package org.blazekill.daggerpractice.activities;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
+
+import com.bumptech.glide.RequestManager;
 
 import org.blazekill.daggerpractice.BaseApplication;
 import org.blazekill.daggerpractice.R;
@@ -16,15 +20,24 @@ public class AuthActivity extends DaggerAppCompatActivity {
     private static final String TAG = "AuthActivity";
 
     @Inject
-    @Named("BaseApp")
-    boolean baseAppStatus;
+    Drawable logo;
+
+    // Glide instance
+    @Inject
+    RequestManager requestManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
 
-        Log.d(TAG, "onCreate: Base app status: " + baseAppStatus);
+        setLogo();
+    }
+
+    private void setLogo() {
+        requestManager
+                .load(logo)
+                .into((ImageView) findViewById(R.id.login_logo));
     }
 
 }
