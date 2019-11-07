@@ -1,11 +1,14 @@
-package org.blazekill.daggerpractice.di;
+package org.blazekill.daggerpractice.di.app;
 
 import org.blazekill.daggerpractice.BaseApplication;
+
+import javax.inject.Singleton;
 
 import dagger.Component;
 import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 
+@Singleton
 @Component(
     modules = {
         AndroidSupportInjectionModule.class,

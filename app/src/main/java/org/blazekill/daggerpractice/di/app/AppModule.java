@@ -1,4 +1,4 @@
-package org.blazekill.daggerpractice.di;
+package org.blazekill.daggerpractice.di.app;
 
 import android.app.Application;
 import android.graphics.drawable.Drawable;
@@ -13,6 +13,7 @@ import org.blazekill.daggerpractice.BaseApplication;
 import org.blazekill.daggerpractice.R;
 
 import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -20,6 +21,7 @@ import dagger.Provides;
 @Module
 public class AppModule {
 
+    @Singleton
     @Provides
     static RequestOptions provideRequestOptions() {
         return RequestOptions
@@ -27,11 +29,13 @@ public class AppModule {
                 .error(R.drawable.white_background);
     }
 
+    @Singleton
     @Provides
     static RequestManager provideGlideInstance(BaseApplication application, RequestOptions requestOptions) {
         return Glide.with(application).setDefaultRequestOptions(requestOptions);
     }
 
+    @Singleton
     @Provides
     static Drawable provideAppDrawable(BaseApplication application) {
         return ContextCompat.getDrawable(application, R.drawable.logo);

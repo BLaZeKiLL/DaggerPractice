@@ -1,4 +1,4 @@
-package org.blazekill.daggerpractice.di;
+package org.blazekill.daggerpractice.di.app;
 
 import org.blazekill.daggerpractice.activities.AuthActivity;
 
