@@ -48,17 +48,18 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glide_version"
     annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 
-    // ViewModel and LiveData
+    // RxJava 2
+    def rxjava2_version = "2.2.14"
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava2_version"
+
+    // ViewModel, LiveData, RxJava support
     def lifecycle_version = "2.1.0"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:$lifecycle_version"
 
-    // Retrofit
+    // Retrofit, RxJava support
     def retrofit_version = "2.6.2"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
-
-    // RxJava 2
-    def rxjava2_version = "2.2.14"
-    implementation "io.reactivex.rxjava2:rxjava:$rxjava2_version"
 }
