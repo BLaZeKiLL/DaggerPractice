@@ -2,6 +2,9 @@ package org.blazekill.daggerpractice.ui.auth;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.lifecycle.ViewModelProviders;
@@ -21,6 +24,8 @@ public class AuthActivity extends DaggerAppCompatActivity {
 
     private AuthViewModel viewModel;
 
+    private EditText userId;
+
     @Inject
     ViewModelProviderFactory providerFactory;
 
@@ -36,9 +41,32 @@ public class AuthActivity extends DaggerAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
 
+        userId = findViewById(R.id.user_id_input);
+
+        findViewById(R.id.login_button).setOnClickListener(v -> {
+            attemptLogin();
+        });
+
         viewModel = ViewModelProviders.of(this, providerFactory).get(AuthViewModel.class);
 
         setLogo();
+
+        subscribeObservers();
+    }
+
+    private void subscribeObservers() {
+        viewModel.observeUser().observe(this, user -> {
+            if (user != null) {
+                Log.d(TAG, "subscribeObservers: " + user.getEmail());
+            }
+        });
+    }
+
+    private void attemptLogin() {
+        if (TextUtils.isEmpty(userId.getText().toString())) {
+            return;
+        }
+        viewModel.authenticateWithId(Integer.parseInt(userId.getText().toString()));
     }
 
     private void setLogo() {
