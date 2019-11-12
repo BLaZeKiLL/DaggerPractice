@@ -1,6 +1,6 @@
 package org.blazekill.daggerpractice;
 
-import org.blazekill.daggerpractice.di.DaggerAppComponent;
+import org.blazekill.daggerpractice.di.app.DaggerAppComponent;
 
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerApplication;

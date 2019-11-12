@@ -1,6 +1,7 @@
 package org.blazekill.daggerpractice.di.app;
 
 import org.blazekill.daggerpractice.BaseApplication;
+import org.blazekill.daggerpractice.di.viewmodel.ViewModelFactoryModule;
 
 import javax.inject.Singleton;
 
@@ -13,7 +14,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
     modules = {
         AndroidSupportInjectionModule.class,
         ActivityBuildersModule.class,
-        AppModule.class
+        AppModule.class,
+        ViewModelFactoryModule.class
     }
 )
 public interface AppComponent extends AndroidInjector<BaseApplication> {
