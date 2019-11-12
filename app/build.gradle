@@ -31,7 +31,7 @@ dependencies {
     def material_version = "1.0.0"
     implementation "com.google.android.material:material:$material_version"
 
-    // Dagger
+    // Dagger Core
     def dagger_version = "2.25.2"
     implementation "com.google.dagger:dagger:$dagger_version"
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
@@ -56,4 +56,9 @@ dependencies {
     def retrofit_version = "2.6.2"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+
+    // RxJava 2
+    def rxjava2_version = "2.2.14"
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava2_version"
 }
