@@ -10,7 +10,7 @@ import dagger.Module;
 import dagger.multibindings.IntoMap;
 
 @Module
-public abstract class AuthViewModelsModule {
+public abstract class AuthViewModelModule {
 
     @Binds
     @IntoMap

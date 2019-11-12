@@ -1,6 +1,6 @@
 package org.blazekill.daggerpractice.di.app;
 
-import org.blazekill.daggerpractice.di.auth.AuthViewModelsModule;
+import org.blazekill.daggerpractice.di.auth.AuthViewModelModule;
 import org.blazekill.daggerpractice.ui.auth.AuthActivity;
 
 import dagger.Module;
@@ -15,8 +15,13 @@ import dagger.android.ContributesAndroidInjector;
 @Module
 public abstract class ActivityBuildersModule {
 
+    /**
+     * Since a sub component will be created which has AuthViewModelModule
+     * Only that sub component will have access to AuthViewModel injection
+     * @return Dependency injected AuthActivity
+     */
     @ContributesAndroidInjector(
-        modules = {AuthViewModelsModule.class}
+        modules = {AuthViewModelModule.class}
     )
     abstract AuthActivity contributeAuthActivity();
 
