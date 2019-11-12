@@ -31,6 +31,10 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:1.1.1"
     androidTestImplementation "androidx.test.espresso:espresso-core:3.2.0"
 
+    // Android Annotations
+    def annotation_version = "1.1.0"
+    implementation "androidx.annotation:annotation:$annotation_version"
+
     // Material Design
     def material_version = "1.0.0"
     implementation "com.google.android.material:material:$material_version"
@@ -66,4 +70,5 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+
 }
