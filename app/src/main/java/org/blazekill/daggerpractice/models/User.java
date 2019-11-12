@@ -3,6 +3,10 @@ package org.blazekill.daggerpractice.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Annotations @SerializedName and @Expose make the field
+ * serializable by GSON
+ */
 public class User {
 
     @SerializedName("id")
