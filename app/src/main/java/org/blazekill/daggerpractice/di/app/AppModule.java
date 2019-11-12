@@ -1,6 +1,5 @@
 package org.blazekill.daggerpractice.di.app;
 
-import android.app.Application;
 import android.graphics.drawable.Drawable;
 
 import androidx.core.content.ContextCompat;
@@ -11,15 +10,26 @@ import com.bumptech.glide.request.RequestOptions;
 
 import org.blazekill.daggerpractice.BaseApplication;
 import org.blazekill.daggerpractice.R;
+import org.blazekill.daggerpractice.util.Constants;
 
-import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
 public class AppModule {
+
+    @Singleton
+    @Provides
+    static Retrofit provideRetrofitInstance() {
+        return new Retrofit.Builder()
+            .baseUrl(Constants.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+    }
 
     @Singleton
     @Provides
