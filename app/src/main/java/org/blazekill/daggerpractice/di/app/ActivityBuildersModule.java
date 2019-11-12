@@ -1,5 +1,6 @@
 package org.blazekill.daggerpractice.di.app;
 
+import org.blazekill.daggerpractice.di.auth.AuthModule;
 import org.blazekill.daggerpractice.di.auth.AuthViewModelModule;
 import org.blazekill.daggerpractice.ui.auth.AuthActivity;
 
@@ -21,7 +22,10 @@ public abstract class ActivityBuildersModule {
      * @return Dependency injected AuthActivity
      */
     @ContributesAndroidInjector(
-        modules = {AuthViewModelModule.class}
+        modules = {
+            AuthViewModelModule.class,
+            AuthModule.class
+        }
     )
     abstract AuthActivity contributeAuthActivity();
 
