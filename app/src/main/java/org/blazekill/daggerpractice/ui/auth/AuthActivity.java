@@ -1,5 +1,6 @@
 package org.blazekill.daggerpractice.ui.auth;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,6 +17,7 @@ import com.bumptech.glide.RequestManager;
 
 import org.blazekill.daggerpractice.R;
 import org.blazekill.daggerpractice.di.viewmodel.ViewModelProviderFactory;
+import org.blazekill.daggerpractice.ui.main.MainActivity;
 
 import javax.inject.Inject;
 
@@ -60,13 +62,14 @@ public class AuthActivity extends DaggerAppCompatActivity {
     }
 
     private void subscribeObservers() {
-        viewModel.observeUser()
+        viewModel.observeAuthState()
             .observe(this, userAuthResource -> {
                 if (userAuthResource != null) {
                     switch (userAuthResource.status) {
                         case AUTHENTICATED:
                             showProgressBar(false);
                             Log.d(TAG, "subscribeObservers: LOGIN SUCCESS: " + userAuthResource.data.getEmail());
+                            onLoginSuccess();
                             break;
                         case ERROR:
                             showProgressBar(false);
@@ -81,6 +84,12 @@ public class AuthActivity extends DaggerAppCompatActivity {
                     }
                 }
             });
+    }
+
+    private void onLoginSuccess() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void showProgressBar(boolean show) {

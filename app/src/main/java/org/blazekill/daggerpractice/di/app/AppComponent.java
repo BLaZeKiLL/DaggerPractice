@@ -23,6 +23,7 @@ public interface AppComponent extends AndroidInjector<BaseApplication> {
 
     /**
      * Can be in app module
+     * but since it is not a 3rd party module we can do direct injection
      * @return Session manager
      */
     SessionManager sessionManager();

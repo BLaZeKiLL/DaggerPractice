@@ -1,10 +1,12 @@
 package org.blazekill.daggerpractice.ui.auth;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.LiveDataReactiveStreams;
-import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.ViewModel;
 
+import org.blazekill.daggerpractice.SessionManager;
 import org.blazekill.daggerpractice.models.User;
 import org.blazekill.daggerpractice.network.auth.AuthApi;
 
@@ -19,18 +21,21 @@ public class AuthViewModel extends ViewModel {
 
     private final AuthApi authApi;
 
-    // I guess mediator holds the data (intermediate live data) checkout live data
-    private MediatorLiveData<AuthResource<User>> authUser = new MediatorLiveData<>();
+    private SessionManager sessionManager;
 
     @Inject
-    public AuthViewModel(AuthApi authApi) {
+    public AuthViewModel(AuthApi authApi, SessionManager sessionManager) {
         this.authApi = authApi;
+        this.sessionManager = sessionManager;
     }
 
     public void authenticateWithId(int userId) {
-        authUser.setValue(AuthResource.loading(null));
+        Log.d(TAG, "authenticateWithId: Attempting to login");
+        sessionManager.authenticateWithId(queryUserId(userId));
+    }
 
-        final LiveData<AuthResource<User>> source = LiveDataReactiveStreams
+    private LiveData<AuthResource<User>> queryUserId(int userId) {
+        return LiveDataReactiveStreams
             .fromPublisher(
                 authApi.getUser(userId)
                     // Error handler
@@ -48,15 +53,10 @@ public class AuthViewModel extends ViewModel {
                     })
                     .subscribeOn(Schedulers.io())
             );
-
-        authUser.addSource(source, user -> {
-            authUser.setValue(user);
-            authUser.removeSource(source);
-        });
     }
 
-    public LiveData<AuthResource<User>> observeUser() {
-        return authUser;
+    public LiveData<AuthResource<User>> observeAuthState() {
+        return sessionManager.getAuthUser();
     }
 
 }
