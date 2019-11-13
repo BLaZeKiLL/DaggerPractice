@@ -3,6 +3,7 @@ package org.blazekill.daggerpractice.di.app;
 import org.blazekill.daggerpractice.di.auth.AuthModule;
 import org.blazekill.daggerpractice.di.auth.AuthViewModelModule;
 import org.blazekill.daggerpractice.ui.auth.AuthActivity;
+import org.blazekill.daggerpractice.ui.main.MainActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -28,5 +29,8 @@ public abstract class ActivityBuildersModule {
         }
     )
     abstract AuthActivity contributeAuthActivity();
+
+    @ContributesAndroidInjector
+    abstract MainActivity contributeMainActivity();
 
 }
