@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 
 import org.blazekill.daggerpractice.BaseActivity;
 import org.blazekill.daggerpractice.R;
+import org.blazekill.daggerpractice.ui.main.profile.ProfileFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -22,6 +23,14 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         Toast.makeText(this, "Main Activity", Toast.LENGTH_SHORT).show();
+
+        testFragment();
+    }
+
+    private void testFragment() {
+        getSupportFragmentManager().beginTransaction()
+            .replace(R.id.main_container, new ProfileFragment())
+            .commit();
     }
 
     @Override
