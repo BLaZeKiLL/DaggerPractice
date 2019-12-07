@@ -12,6 +12,9 @@ import javax.inject.Inject;
 
 import dagger.android.support.DaggerAppCompatActivity;
 
+/**
+ * Any activity extending BaseActivity will observe the session manager for auth status
+ */
 public abstract class BaseActivity extends DaggerAppCompatActivity {
 
     private static final String TAG = "BaseActivity";
