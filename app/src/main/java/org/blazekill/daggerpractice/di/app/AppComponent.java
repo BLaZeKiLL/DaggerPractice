@@ -1,7 +1,6 @@
 package org.blazekill.daggerpractice.di.app;
 
 import org.blazekill.daggerpractice.BaseApplication;
-import org.blazekill.daggerpractice.SessionManager;
 import org.blazekill.daggerpractice.di.viewmodel.ViewModelFactoryModule;
 
 import javax.inject.Singleton;
@@ -20,13 +19,6 @@ import dagger.android.support.AndroidSupportInjectionModule;
     }
 )
 public interface AppComponent extends AndroidInjector<BaseApplication> {
-
-    /**
-     * Can be in app module
-     * but since it is not a 3rd party module we can do direct injection
-     * @return Session manager
-     */
-    SessionManager sessionManager();
 
     /**
      * create method is already added as we are extending Factory interface from

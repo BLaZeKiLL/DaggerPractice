@@ -8,18 +8,11 @@ import androidx.lifecycle.MediatorLiveData;
 import org.blazekill.daggerpractice.models.User;
 import org.blazekill.daggerpractice.ui.auth.AuthResource;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
-@Singleton
 public class SessionManager {
 
     private static final String TAG = "SessionManager";
 
     private MediatorLiveData<AuthResource<User>> cachedUser = new MediatorLiveData<>();
-
-    @Inject
-    public SessionManager() { }
 
     public void authenticateWithId(final LiveData<AuthResource<User>> source) {
         if (cachedUser != null) {

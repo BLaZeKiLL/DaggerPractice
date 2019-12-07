@@ -10,6 +10,7 @@ import com.bumptech.glide.request.RequestOptions;
 
 import org.blazekill.daggerpractice.BaseApplication;
 import org.blazekill.daggerpractice.R;
+import org.blazekill.daggerpractice.SessionManager;
 import org.blazekill.daggerpractice.util.Constants;
 
 import javax.inject.Singleton;
@@ -22,6 +23,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
 public class AppModule {
+
+    @Singleton
+    @Provides
+    static SessionManager provideSessionManager() {
+        return new SessionManager();
+    }
 
     @Singleton
     @Provides
