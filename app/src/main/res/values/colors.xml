@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary">#222222</color>
     <color name="colorPrimaryDark">#111111</color>
-    <color name="colorAccent">#ccc</color>
+    <color name="colorAccent">#e01f26</color>
 
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#fff</color>
 </resources>
