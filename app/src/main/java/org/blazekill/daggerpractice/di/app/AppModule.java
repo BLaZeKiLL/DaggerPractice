@@ -10,8 +10,8 @@ import com.bumptech.glide.request.RequestOptions;
 
 import org.blazekill.daggerpractice.BaseApplication;
 import org.blazekill.daggerpractice.R;
-import org.blazekill.daggerpractice.SessionManager;
 import org.blazekill.daggerpractice.util.Constants;
+import org.blazekill.daggerpractice.util.SessionManager;
 
 import javax.inject.Singleton;
 

@@ -9,8 +9,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.blazekill.daggerpractice.BaseActivity;
 import org.blazekill.daggerpractice.R;
+import org.blazekill.daggerpractice.ui.BaseActivity;
 import org.blazekill.daggerpractice.ui.main.profile.ProfileFragment;
 
 public class MainActivity extends BaseActivity {

@@ -6,9 +6,9 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.LiveDataReactiveStreams;
 import androidx.lifecycle.ViewModel;
 
-import org.blazekill.daggerpractice.SessionManager;
 import org.blazekill.daggerpractice.models.User;
 import org.blazekill.daggerpractice.network.auth.AuthApi;
+import org.blazekill.daggerpractice.util.SessionManager;
 
 import javax.inject.Inject;
 

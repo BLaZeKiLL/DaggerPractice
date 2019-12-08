@@ -1,4 +1,4 @@
-package org.blazekill.daggerpractice;
+package org.blazekill.daggerpractice.util;
 
 import android.util.Log;
 

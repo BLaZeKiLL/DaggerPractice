@@ -1,4 +1,4 @@
-package org.blazekill.daggerpractice;
+package org.blazekill.daggerpractice.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import org.blazekill.daggerpractice.ui.auth.AuthActivity;
+import org.blazekill.daggerpractice.util.SessionManager;
 
 import javax.inject.Inject;
 
