@@ -1,6 +1,7 @@
 package org.blazekill.daggerpractice.ui.main.posts;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,16 @@ public class PostsFragment extends DaggerFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         recyclerView = view.findViewById(R.id.recycler_view);
         viewModel = ViewModelProviders.of(this, providerFactory).get(PostsViewModel.class);
+        subscribeObserver();
+    }
+
+    private void subscribeObserver() {
+        viewModel.observePosts().removeObservers(getViewLifecycleOwner());
+        viewModel.observePosts().observe(getViewLifecycleOwner(), listResource -> {
+            if (listResource != null) {
+                Log.d(TAG, "subscribeObserver: " + listResource.data);
+            }
+        });
     }
 
 }

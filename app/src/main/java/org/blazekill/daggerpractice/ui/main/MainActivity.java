@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 
 import org.blazekill.daggerpractice.R;
 import org.blazekill.daggerpractice.ui.BaseActivity;
-import org.blazekill.daggerpractice.ui.main.profile.ProfileFragment;
+import org.blazekill.daggerpractice.ui.main.posts.PostsFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -29,7 +29,7 @@ public class MainActivity extends BaseActivity {
 
     private void testFragment() {
         getSupportFragmentManager().beginTransaction()
-            .replace(R.id.main_container, new ProfileFragment())
+            .replace(R.id.main_container, new PostsFragment())
             .commit();
     }
 
