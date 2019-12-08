@@ -14,6 +14,7 @@ import org.blazekill.daggerpractice.util.SessionManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.inject.Inject;
 
@@ -33,7 +34,6 @@ public class PostsViewModel extends ViewModel {
     public PostsViewModel(SessionManager sessionManager, MainApi mainApi) {
         this.sessionManager = sessionManager;
         this.mainApi = mainApi;
-        Log.d(TAG, "PostsViewModel: viewmodel working ...");
     }
 
     public LiveData<Resource<List<Post>>> observePosts() {
@@ -42,7 +42,7 @@ public class PostsViewModel extends ViewModel {
             posts.setValue(Resource.loading(null));
 
             final LiveData<Resource<List<Post>>> source = LiveDataReactiveStreams.fromPublisher(
-                mainApi.getPostFromUser(sessionManager.getAuthUser().getValue().data.getId())
+                mainApi.getPostFromUser(Objects.requireNonNull(Objects.requireNonNull(sessionManager.getAuthUser().getValue()).data).getId())
                 .onErrorReturn(throwable -> {
                     Log.e(TAG, "observePosts: ", throwable);
                     Post post = new Post();
