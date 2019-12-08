@@ -50,11 +50,12 @@ public class ProfileFragment extends DaggerFragment {
                 switch (userAuthResource.status) {
                     case ERROR: {
                         setErrorDetails(userAuthResource.message);
-                        return;
+                        break;
                     }
                     case AUTHENTICATED: {
+                        assert userAuthResource.data != null;
                         setUserDetails(userAuthResource.data);
-                        return;
+                        break;
                     }
                 }
             }
